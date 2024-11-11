@@ -1,8 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import { Canvas } from "@react-three/fiber";
 import gsap, { ScrollTrigger } from "gsap/all";
-import React from "react";
-import Page7_Model from "./Page7_Model";
+import React, { lazy, Suspense } from "react";
+
+// Lazy load Page7_Model
+const Page7_Model = lazy(() => import("./Page7_Model"));
 
 const Page7 = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,7 +19,6 @@ const Page7 = () => {
             start: "top 0",
             end: "top -100%",
             scrub: 2,
-
             pin: true,
             anticipatePin: 1,
           },
@@ -34,7 +35,6 @@ const Page7 = () => {
           0
         );
       },
-
       // For screens smaller than 'sm'
       "(max-width: 639px)": () => {
         const tl = gsap.timeline({
@@ -43,7 +43,6 @@ const Page7 = () => {
             start: "top 80%",
             end: "top 70%",
             scrub: 4,
-
             pin: false, // Disable pin for small screens
           },
         });
@@ -59,21 +58,20 @@ const Page7 = () => {
   });
 
   return (
-    <div
-      style={{ background: "linear-gradient(to right, #6B46C1, #D53F8C)" }}
-      className="w-full page7 sm:min-h-[100vh] min-h-[30vh]  text-black px-20 py-2 brandcontainer overflow-x-hidden relative whitespace-nowrap"
-    >
+    <div className="w-full page7 sm:min-h-[100vh] min-h-[30vh] text-black px-20 py-2 brandcontainer overflow-x-hidden relative whitespace-nowrap">
       {/* for screen size greater than sm */}
-      <h1 className="hidden sm:block font-jelly sm:text-[9.5vw]  brandbottom1 opacity-[0.5]">
+      <h1 className="hidden sm:block font-jelly sm:text-[9.5vw] brandbottom1 opacity-[0.5]">
         We Work With The Best | We Work With The Best
       </h1>
       {/* for screen size sm */}
       <h1 className="sm:hidden text-[7vw] text-center mx-auto font-jelly absolute left-[10vw] brandbottom3">
-        We Work With The best
+        We Work With The Best
       </h1>
       <div className="sm:h-[30vh] w-full sm:block">
         <Canvas shadows>
-          <Page7_Model />
+          <Suspense fallback={null}>
+            <Page7_Model />
+          </Suspense>
         </Canvas>
       </div>
       {/* for screen size greater than sm */}

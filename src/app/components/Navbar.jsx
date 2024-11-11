@@ -85,7 +85,7 @@ const Navbar = () => {
           {options.map((e, i) => (
             <div
               key={i}
-              className="options text-lg w-fit h-7 sm:h-9 font-choco text-white font-normal sm:hover:-translate-y-8 sm:text-3xl sm:hover:text-slate-500 sm:transition-all sm:duration-300 cursor-pointer"
+              className="options text-lg w-fit h-7 sm:h-9 font-choco text-black font-normal sm:hover:-translate-y-8 sm:text-3xl sm:hover:text-white sm:transition-all sm:duration-300 cursor-pointer"
             >
               <h1
                 onClick={

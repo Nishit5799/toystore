@@ -18,7 +18,6 @@ const Page4 = () => {
       },
       {
         // backgroundColor: "#FFDEAC",
-        background: "linear-gradient(to right, #6B46C1, #D53F8C)",
         opacity: 1,
         color: "black",
         duration: 0.5,

@@ -21,7 +21,7 @@ const Page6_Heading = () => {
         scrollTrigger: {
           trigger: ".page6", // Trigger based on container
           scrub: 3, // Set to false for smoother animation
-          markers: true,
+
           start: "top 75%", // When container hits 90% of the viewport
           end: "top 60%", // End trigger point
         },

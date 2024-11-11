@@ -1,5 +1,5 @@
-import { BiDownArrowAlt } from "react-icons/bi";
 import { useGSAP } from "@gsap/react";
+import { BiSolidDownArrow } from "react-icons/bi";
 import gsap from "gsap/all";
 const Page1_DownArrow = () => {
   const handleDownArrow = () => {
@@ -23,7 +23,7 @@ const Page1_DownArrow = () => {
       ease: "expo.out",
     }).to(".menu .menus", {
       y: 4,
-      color: "#475569",
+
       opacity: 1,
       ease: "linear",
       repeat: -1,
@@ -35,8 +35,8 @@ const Page1_DownArrow = () => {
       className="top-[85vh] left-[45vw] menu  sm:h-14 sm:w-14 rounded-full  flex items-center justify-center  absolute z-[12] sm:top-[40vw] cursor-pointer sm:left-[47vw] "
       onClick={handleDownArrow}
     >
-      <div className="menus w-full h-full text-slate-400 flex items-center justify-center">
-        <BiDownArrowAlt size={40} />
+      <div className="menus w-full h-full text-black flex items-center justify-center">
+        <BiSolidDownArrow size={30} />
       </div>
     </div>
   );

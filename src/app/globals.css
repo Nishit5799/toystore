@@ -21,27 +21,89 @@ body {
   padding: 0;
 }
 
-body {
-  background-color: black;
-}
-
 .loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  position: relative;
 }
 
-@keyframes spin {
+.loader:before {
+  content: "";
+  width: 48px;
+  height: 5px;
+  background: #f0808050;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #f08080;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+.gradient-background {
+  background: linear-gradient(275deg, #e15227, #dbcd1c, #1c83db, #db1cc8);
+  background-size: 360% 360%;
+  animation: gradient-animation 24s ease infinite;
+}
+
+@keyframes gradient-animation {
   0% {
-    transform: rotate(0deg);
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    transform: rotate(360deg);
+    background-position: 0% 50%;
   }
 }
-.logo-container .logo-white {
-  filter: brightness(0) invert(1);
+.letter,
+.letter2 {
+  text-shadow: -1px -1px 0 #000, /* Top-left */ 1px -1px 0 #000,
+    /* Top-right */ -1px 1px 0 #000, /* Bottom-left */ 1px 1px 0 #000; /* Bottom-right */
 }

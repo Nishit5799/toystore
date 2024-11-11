@@ -11,10 +11,8 @@ const Page1_Heading = () => {
         Math.random() * 256
       )}, ${Math.floor(Math.random() * 256)})`;
 
-    // Create a timeline but don't start it immediately
-    const tl = gsap.timeline({ repeat: -1, paused: true }); // Paused initially
+    const tl = gsap.timeline({ repeat: -1, paused: true });
 
-    // Define the bounce animation with `fromTo`
     tl.fromTo(
       ".head .letter, .head2 .letter2",
       { y: -5 },
@@ -23,19 +21,18 @@ const Page1_Heading = () => {
         yoyo: true,
         repeat: -1,
         ease: "power1.out",
-        color: getRandomColor, // Use random color for each animation
+        color: getRandomColor,
         stagger: {
           each: 0.1,
         },
         onRepeat: () => {
           gsap.to(".head .letter, .head2 .letter2", {
-            color: getRandomColor, // Update color on each repeat
+            color: getRandomColor,
           });
         },
       }
     );
 
-    // Start the initial animation with gsap.from
     gsap.from(".head .letter, .head2 .letter2", {
       y: 100,
       stagger: 0.05,
@@ -48,9 +45,9 @@ const Page1_Heading = () => {
 
   return (
     <>
-      <div className="head flex flex-col bg-black sm:flex sm:flex-col w-full h-full absolute top-2/3 text-center sm:text-left text-white sm:top-[10vw] sm:left-[6vw]">
+      <div className="head flex flex-col sm:flex sm:flex-col w-full h-full absolute top-2/3 text-center sm:text-left text-white sm:top-[10vw] sm:left-[6vw]">
         {heads.map((word, index) => (
-          <span key={index} className="inline-block ">
+          <span key={index} className="inline-block">
             {word.split("").map((letter, i) => (
               <span
                 key={i}
