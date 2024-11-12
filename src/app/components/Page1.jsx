@@ -1,12 +1,14 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import { Canvas } from "@react-three/fiber";
 import Page1_Heading from "./Page1_Heading";
 import Page1_DownArrow from "./Page1_DownArrow";
+import Quality from "./Quality";
+import Toys from "./Toys";
 
 // Lazy load Quality and Toys components
-const Quality = lazy(() => import("./Quality"));
-const Toys = lazy(() => import("./Toys"));
+// const Quality = lazy(() => import("./Quality"));
+// const Toys = lazy(() => import("./Toys"));
 
 const Page1 = () => {
   return (
@@ -16,9 +18,7 @@ const Page1 = () => {
 
       {/* Quality Canvas with lower z-index */}
       <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}>
-        <Suspense fallback={null}>
-          <Quality />
-        </Suspense>
+        <Quality />
       </Canvas>
 
       {/* Page1_Heading with medium z-index */}
@@ -31,9 +31,7 @@ const Page1 = () => {
 
       {/* Toys Canvas with higher z-index */}
       <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 3 }}>
-        <Suspense fallback={null}>
-          <Toys />
-        </Suspense>
+        <Toys />
       </Canvas>
 
       <Page1_DownArrow />

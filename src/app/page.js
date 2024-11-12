@@ -2,6 +2,7 @@
 
 import { Suspense, lazy, useEffect } from "react";
 import LocomotiveScroll from "locomotive-scroll";
+import Loading from "./loading";
 
 // Lazy-load the components
 const Page1 = lazy(() => import("./components/Page1"));
@@ -19,8 +20,9 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="back gradient-background">
-      <Suspense fallback={null}>
+    <Suspense fallback={<Loading />}>
+      <div className="back gradient-background">
+        {/* Use Suspense to show Loading component as a fallback */}
         <Page1 />
         <Page2 />
         <Page3 />
@@ -29,8 +31,8 @@ const Page = () => {
         <Page5 />
         <Page6 />
         <Page7 />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 };
 

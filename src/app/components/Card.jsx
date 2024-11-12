@@ -1,5 +1,8 @@
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useState, Suspense, lazy } from "react";
+
+// Lazy-load the VideoPlayer component
+const VideoPlayer = lazy(() => import("./VideoPlayer"));
 
 const Card = ({ image, idx }) => {
   const brandTitle = [
@@ -31,32 +34,21 @@ const Card = ({ image, idx }) => {
     "uboard.mp4",
   ];
 
-  // Reference for the video element
-  const videoRef = useRef(null);
-
-  // Function to reset the video to start on hover
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0; // Reset video to the start
-      videoRef.current.play(); // Ensure the video starts playing
-    }
-  };
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
       className="sm:h-[20vw] sm:w-[13vw] w-24 flex items-center justify-center rounded-xl overflow-hidden relative transform transition duration-300 ease-out hover:scale-105"
-      onMouseEnter={handleMouseEnter} // Trigger on hover
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Video and brand title overlay to show on hover */}
       <div className="imagetext h-full w-full absolute top-0 left-0 opacity-0 hover:opacity-100 transition duration-300">
-        <video
-          ref={videoRef} // Attach the ref to the video element
-          src={`/${videoTitle[idx]}`} // Use the dynamic video source
-          className="w-full h-full object-cover object-center"
-          loop
-          muted
-          autoPlay
-        ></video>
+        {isHovered && (
+          <Suspense fallback={<div>Loading...</div>}>
+            <VideoPlayer src={`/${videoTitle[idx]}`} />
+          </Suspense>
+        )}
 
         {/* Brand title overlaying the video with reduced opacity */}
         <h1
