@@ -105,7 +105,7 @@ const Navbar = () => {
         <div className="sm:hidden">
           <IoMdMenu
             size={24}
-            className="text-white cursor-pointer"
+            className="text-black cursor-pointer"
             onClick={toggleMenu}
           />
         </div>
@@ -119,7 +119,7 @@ const Navbar = () => {
         <div className="p-8 mr-10 flex justify-end text-black">
           <IoMdClose
             size={30}
-            className="cursor-pointer"
+            className="cursor-pointer "
             onClick={toggleMenu}
           />
         </div>
@@ -128,7 +128,7 @@ const Navbar = () => {
           {options.map((option, index) => (
             <h1
               key={index}
-              className="text-2xl text-black cursor-pointer hover:text-black"
+              className="text-4xl font-choco  text-black cursor-pointer"
               onClick={
                 option === "Brand"
                   ? handleBrandPageScroll

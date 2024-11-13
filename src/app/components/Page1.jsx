@@ -1,14 +1,12 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Navbar from "./Navbar";
 import { Canvas } from "@react-three/fiber";
 import Page1_Heading from "./Page1_Heading";
 import Page1_DownArrow from "./Page1_DownArrow";
-import Quality from "./Quality";
-import Toys from "./Toys";
+import Loading from "../loading";
 
-// Lazy load Quality and Toys components
-// const Quality = lazy(() => import("./Quality"));
-// const Toys = lazy(() => import("./Toys"));
+const Quality = lazy(() => import("./Quality"));
+const Toys = lazy(() => import("./Toys"));
 
 const Page1 = () => {
   return (
@@ -17,22 +15,26 @@ const Page1 = () => {
       <Navbar />
 
       {/* Quality Canvas with lower z-index */}
-      <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}>
-        <Quality />
-      </Canvas>
+      <Suspense fallback={<Loading />}>
+        <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 3 }}>
+          <Quality />
+        </Canvas>
+      </Suspense>
 
       {/* Page1_Heading with medium z-index */}
       <div
-        style={{ position: "relative", zIndex: 2 }}
+        style={{ position: "relative", zIndex: 3 }}
         className="sm:relative sm:z-[2] absolute tracking-wider font-jelly top-2/3 sm:top-0"
       >
         <Page1_Heading />
       </div>
 
       {/* Toys Canvas with higher z-index */}
-      <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 3 }}>
-        <Toys />
-      </Canvas>
+      <Suspense fallback={null}>
+        <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 2 }}>
+          <Toys />
+        </Canvas>
+      </Suspense>
 
       <Page1_DownArrow />
     </div>

@@ -45,13 +45,13 @@ const Page1_Heading = () => {
 
   return (
     <>
-      <div className="head flex flex-col sm:flex sm:flex-col w-full h-full absolute top-2/3 text-center sm:text-left text-white sm:top-[10vw] sm:left-[6vw]">
+      <div className="head flex flex-col sm:flex sm:flex-col w-full h-full absolute -top-[30vw] text-center sm:text-left text-white sm:top-[10vw] sm:left-[6vw]">
         {heads.map((word, index) => (
           <span key={index} className="inline-block">
             {word.split("").map((letter, i) => (
               <span
                 key={i}
-                className="text-[7vw] sm:text-[10vw] sm:leading-none tracking-tight inline-block letter"
+                className="text-[20vw] leading-none sm:text-[10vw] sm:leading-none tracking-tight inline-block letter"
               >
                 {letter}
               </span>
