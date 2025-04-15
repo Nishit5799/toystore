@@ -19,18 +19,18 @@ const Page1 = () => {
         <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 3 }}>
           <Quality />
         </Canvas>
-      </Suspense>
 
       {/* Page1_Heading with medium z-index */}
       <div
         style={{ position: "relative", zIndex: 3 }}
         className="sm:relative sm:z-[2] absolute tracking-wider font-jelly top-2/3 sm:top-0"
-      >
+        >
         <Page1_Heading />
       </div>
+        </Suspense>
 
       {/* Toys Canvas with higher z-index */}
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
         <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: 2 }}>
           <Toys />
         </Canvas>

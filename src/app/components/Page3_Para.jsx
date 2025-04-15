@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap, { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 const Page3_Para = () => {
-  const para = [
+  const para1 = [
     "Discover premium quality toys crafted for endless fun and",
     "Durability. With safe, eco-friendly materials, these toys inspire",
     "imagination and stand the test of time. Perfect for curious minds",
@@ -80,10 +80,10 @@ const Page3_Para = () => {
           className="z-[2] zigzag2"
         />
       </div>
-      {para.map((e, i) => {
+      {para1.map((e, i) => {
         return (
           <p
-            className="para1  text-white sm:text-[1.6vw] font-['Bayon'] sm:font-choco text-[3.5vw] tracking-wide "
+            className="para1  text-white sm:text-[1.6vw] -mt-1  font-['Bayon'] sm:font-choco text-[3.5vw] tracking-wide "
             key={i}
           >
             {e}

@@ -32,7 +32,7 @@ const Page3_Heading = () => {
   });
 
   return (
-    <div className="headingcontainer1 font-jelly  text-[10vw] px-6 overflow-hidden flex sm:text-[6.5vw] sm:mx-auto mb-8 sm:mb-20 ">
+    <div className="headingcontainer1 font-jelly  text-[10vw] px-6  flex sm:text-[6.5vw]  sm:mx-auto mb-8 sm:mb-20 ">
       {"Premium Quality".split("").map((e, i) => {
         return (
           <span key={i} className="heading1 inline-block mx-auto ">

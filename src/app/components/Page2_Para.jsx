@@ -84,7 +84,7 @@ const Page2_Para = () => {
       {para.map((e, i) => {
         return (
           <p
-            className="para text-white  sm:text-[1.6vw] z-[3] text-[3.5vw] sm:tracking-wide sm:font-choco font-['Bayon']"
+            className="para text-white  sm:text-[1.6vw] z-[3] text-[3.5vw] -mt-1  sm:tracking-wide sm:font-choco font-['Bayon']"
             key={i}
           >
             {e}

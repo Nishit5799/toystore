@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Page3_button = () => {
   const text = "Buy Now";
-  const text2 = "Explore More";
+  const text2 = "Explore";
   const letters = text
     .split("")
     .map((letter) => (letter === " " ? "\u00A0" : letter)); // Replace space with a non-breaking space
