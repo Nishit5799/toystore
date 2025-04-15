@@ -5,7 +5,6 @@ import Page2_Para from "./Page2_Para";
 import Page2_button from "./Page2_button";
 import gsap, { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import Loading from "../loading";
 
 // Lazy load Model2 component
 const Model2 = lazy(() => import("./Model2"));
@@ -40,7 +39,7 @@ const Page2 = () => {
           <div className="w-full relative h-[50vw] overflow-hidden rounded-md sm:hidden">
             <div className="overlay w-full h-full absolute top-0 left-0 z-[100] bg-transparent"></div>
             <Canvas shadows>
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={null}>
                 <Model2 />
               </Suspense>
             </Canvas>
