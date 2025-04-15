@@ -5,6 +5,7 @@ import Page3_Para from "./Page3_Para";
 import gsap, { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import Page3_button from "./Page3_button";
+import Loading from "../loading";
 
 // Lazy load Model3 component
 const Model3 = lazy(() => import("./Model3"));
@@ -69,7 +70,7 @@ const Page3 = () => {
             intensity={25}
           />{" "}
           {/* Use dynamic light position */}
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loading />}>
             <Model3 />
           </Suspense>
         </Canvas>

@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import Page3_EndHeading from "./Page3_EndHeading";
 import Page3_EndPara from "./Page3_EndPara";
 import Page3_EndButton from "./Page3_EndButton";
+import Loading from "../loading";
 
 // Lazy load Model4 component
 const Model4 = lazy(() => import("./Model4"));
@@ -25,7 +26,7 @@ const Page3_End = () => {
       </div>
       <div className="hidden sm:w-1/2 sm:flex sm:items-center sm:justify-center sm:h-full">
         <Canvas shadows>
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loading />}>
             <Model4 />
           </Suspense>
         </Canvas>
